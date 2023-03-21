@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Agenda</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Agenda </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th> Nombre </th>
+                    <th> Telefono </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${personas.empty}">
+                    <td colspan="2"> No existen personas </td>
+                </tr>
+                <tr th:each="persona : ${personas}">
+                    <td><span th:text="${persona.nombre}"> Nombre </span></td>
+                    <td><span th:text="${persona.telefono}"> Telefono </span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <a class="btn btn-success" href="#" th:href="@{/personas/add}"> Agrega persona </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Agrega persona</title>
+</head>
+<body>
+<form th:action="@{/personas/save}" th:object="${persona}" method="post">
+
+    <div>
+        <label for="nombre">Nombre: </label>
+        <input id="nombre" type="text" th:field="*{nombre}">
+        <p th:if="${#fields.hasErrors('nombre')}" th:errorclass="error" th:errors="*{nombre}" />
+    </div>
+
+    <div>
+        <label for="telefono">Telefono: </label>
+        <input id="telefono" type="text" th:field="*{telefono}">
+        <p th:if="${#fields.hasErrors('telefono')}" th:errorclass="error" th:errors="*{telefono}" />
+    </div>
+
+    <input type="submit" th:value="Salvar"/>
+</form>
+</body>
+</html>
